@@ -4,17 +4,19 @@ from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 
-# define the vertices of the triangle
-vertices = ((0, 1),
+# define the vertices of the square
+vertices = ((1, 1),
             (1, -1),
-            (-1, -1))
+            (-1, -1),
+            (-1, 1))
 
-# define the edges of the triangle
+# define the edges of the square
 edge = ((0,1),
         (1,2),
-        (2,0))
-    
-def triangle() :
+        (2,3),
+        (3,0))
+
+def square() :
     glBegin(GL_LINES)
     for e in edge:
         for vertex in e:
@@ -36,7 +38,7 @@ def main() :
             if event.type == pygame.QUIT:
                 pygame.quit()
                 quit()
-        triangle()
+        square()
         pygame.display.flip()
 
 main()
